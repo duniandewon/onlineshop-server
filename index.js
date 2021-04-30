@@ -1,12 +1,11 @@
 import express from 'express';
+import { config } from 'dotenv';
 
 if (process.env.NODE_ENV !== 'production') {
-  require('dotenv').config();
+  config();
 }
 
-/**
- * ----------------- GENERAL SETUP ------------------------
- */
+/** GENERAL SETUP */
 
 const PORT = 5000;
 
@@ -15,12 +14,12 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-/**
- * ----------------- ROUTES ------------------------
- */
+/** ROUTES */
 
-/**
- * ----------------- START SERVER ------------------------
- */
+app.get('/', (req, res) => {
+  res.json({ msg: 'hello' });
+});
+
+/** START SERVER */
 
 app.listen(PORT, () => console.log(`Server started on ${PORT}`));
