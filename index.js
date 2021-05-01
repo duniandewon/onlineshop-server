@@ -1,5 +1,6 @@
 import express from 'express';
 import { config } from 'dotenv';
+import connectDB from './utils/database'
 
 if (process.env.NODE_ENV !== 'production') {
   config();
@@ -21,5 +22,6 @@ app.get('/', (req, res) => {
 });
 
 /** START SERVER */
+connectDB()
 
 app.listen(PORT, () => console.log(`Server started on ${PORT}`));
