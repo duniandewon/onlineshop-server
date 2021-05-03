@@ -5,6 +5,7 @@ import connectDB from './utils/database'
 
 import usersRoute from './routes/users'
 import authRoute from './routes/auth'
+import productsRoute from './routes/products'
 
 if (process.env.NODE_ENV !== 'production') {
   config();
@@ -25,6 +26,7 @@ connectDB()
 
 app.use("/api/users", usersRoute)
 app.use("/api/auth", authRoute)
+app.use("/api/products", productsRoute)
 
 /** START SERVER */
 
