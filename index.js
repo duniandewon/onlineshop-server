@@ -1,6 +1,9 @@
 import express from 'express';
 import { config } from 'dotenv';
+
 import connectDB from './utils/database'
+
+import usersRoute from './routes/users'
 
 if (process.env.NODE_ENV !== 'production') {
   config();
@@ -15,13 +18,12 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+connectDB()
+
 /** ROUTES */
 
-app.get('/', (req, res) => {
-  res.json({ msg: 'hello' });
-});
+app.use("/api/users", usersRoute)
 
 /** START SERVER */
-connectDB()
 
 app.listen(PORT, () => console.log(`Server started on ${PORT}`));

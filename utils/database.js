@@ -1,14 +1,18 @@
-import {MongoClient} from 'mongodb'
+import mongoose from 'mongoose';
 
-const connectDB = async () => {
-  const uri = process.env.DATABSE_URI
-
-  try {
-    await MongoClient.connect(uri, {useNewUrlParser: true, useUnifiedTopology: true})
-    console.log("Connected to databse!")
-  } catch (err) {
-    throw new Error(err)
+async function dbConnect() {
+  if (mongoose.connection.readyState >= 1) {
+    return;
   }
+
+ await mongoose.connect(process.env.DATABSE_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+    useCreateIndex: true,
+  });
+
+  console.log("Database connected!")
 }
 
-export default connectDB
+export default dbConnect;
