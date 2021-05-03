@@ -4,6 +4,7 @@ import { config } from 'dotenv';
 import connectDB from './utils/database'
 
 import usersRoute from './routes/users'
+import authRoute from './routes/auth'
 
 if (process.env.NODE_ENV !== 'production') {
   config();
@@ -23,6 +24,7 @@ connectDB()
 /** ROUTES */
 
 app.use("/api/users", usersRoute)
+app.use("/api/auth", authRoute)
 
 /** START SERVER */
 
