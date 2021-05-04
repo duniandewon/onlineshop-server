@@ -6,6 +6,7 @@ import connectDB from './utils/database'
 import usersRoute from './routes/users'
 import authRoute from './routes/auth'
 import productsRoute from './routes/products'
+import cartsRoute from './routes/carts'
 
 if (process.env.NODE_ENV !== 'production') {
   config();
@@ -13,7 +14,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 /** GENERAL SETUP */
 
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 const app = express();
 
@@ -27,6 +28,7 @@ connectDB()
 app.use("/api/users", usersRoute)
 app.use("/api/auth", authRoute)
 app.use("/api/products", productsRoute)
+app.use("/api/carts", cartsRoute)
 
 /** START SERVER */
 
