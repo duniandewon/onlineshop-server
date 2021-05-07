@@ -12,6 +12,7 @@
     "no-console": "off",
     "object-shorthand": "off",
     "class-methods-use-this": "off",
+    "no-process-exit": "off",
     "node/no-unsupported-features/es-syntax": [
       "error",
       { "ignores": ["modules"] }

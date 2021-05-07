@@ -1,3 +1,4 @@
+import logger from 'morgan';
 import express from 'express';
 import { config } from 'dotenv';
 
@@ -14,10 +15,9 @@ if (process.env.NODE_ENV !== 'production') {
 
 /** GENERAL SETUP */
 
-const PORT = process.env.PORT || 5000;
-
 const app = express();
 
+app.use(logger('common'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -30,6 +30,4 @@ app.use('/api/auth', authRoute);
 app.use('/api/products', productsRoute);
 app.use('/api/carts', cartsRoute);
 
-/** START SERVER */
-
-app.listen(PORT, () => console.log(`Server started on ${PORT}`));
+export default app;
