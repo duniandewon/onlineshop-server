@@ -10,9 +10,8 @@
 		"start": "npm-run-all build server",
 		"dev": "nodemon --exec babel-node -- ./src/index.js",
 		"server": "node ./dist/index.js",
-		"build": "npm-run-all clean transpile",
-		"transpile": "babel src -d dist",
-		"clean": "rimraf dist"
+		"build": "npm-run-all transpile",
+		"transpile": "babel src -d dist"
 	},
 	"keywords": [],
 	"author": "",
