@@ -30,4 +30,6 @@ app.use('/api/auth', authRoute);
 app.use('/api/products', productsRoute);
 app.use('/api/carts', cartsRoute);
 
+app.use('*', (req, res) => res.status(404).json({ msg: '404: Page not found' }));
+
 export default app;
