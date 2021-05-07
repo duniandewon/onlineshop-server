@@ -10,11 +10,8 @@ lerna-debug.log*
 node_modules/
 jspm_packages/
 
-# TypeScript cache
-*.tsbuildinfo
-
-# Optional npm cache directory
-.npm
+# Dist folder
+dist/
 
 # Optional eslint cache
 .eslintcache
